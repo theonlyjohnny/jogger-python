@@ -12,10 +12,11 @@ if [ -n "$(git ls-files --others --exclude-standard)" ]; then
   exit 1
 fi
 
+rm -rf ./build ./dist || true
+
 python3 -m venv ./deploy_venv
 source ./deploy_venv/bin/activate
 python3 -m pip install twine wheel semver
-python3 ./setup.py sdist bdist_wheel
 
 python3 -c '
 import semver
@@ -28,11 +29,11 @@ with open("./version.txt", "r+") as current_version_fd:
   current_version_fd.truncate()
 '
 
+python3 ./setup.py sdist bdist_wheel
+
 git add version.txt
 git commit -m 'bump version'
 git push
-
-rm -rf ./build ./dist || true
 
 git tag v$(cat ./version.txt)
 python3 -m twine upload ./dist/*
