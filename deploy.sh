@@ -1,4 +1,6 @@
 #! /bin/zsh
+set -e
+set -x
 
 if ! $(git diff-files --quiet --ignore-submodules --); then
   echo "unstaged files detected"
@@ -27,7 +29,7 @@ with open("./version.txt", "r+") as current_version_fd:
 '
 
 git add version.txt
-git commmit -m 'bump version'
+git commit -m 'bump version'
 git push
 
 git tag v$(cat ./version.txt)
