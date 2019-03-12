@@ -26,6 +26,10 @@ with open("./version.txt", "r+") as current_version_fd:
   current_version_fd.truncate()
 '
 
+git add version.txt
+git commmit -m 'bump version'
+git push
+
 git tag v$(cat ./version.txt)
-python3 -m twine ./dist/*
+python3 -m twine upload ./dist/*
 git push --tag
