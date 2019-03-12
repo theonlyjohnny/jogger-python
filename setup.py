@@ -1,10 +1,13 @@
 from setuptools import setup, find_packages
 
+with open('./version.txt', 'r') as v:
+    version = v.read()
+
 setup(
-    name='python-logger',
-    version='1.0.0',
-    description='Python3 Logger',
-    url='http://github.com/theonlyjohnny/python-logger',
+    name='jogger-python',
+    version=version,
+    description='Johnny Logger (Jogger) in Python3',
+    url='http://github.com/theonlyjohnny/jogger-python',
     author='Johnny Dallas',
     author_email='theonlyjohnny@theonlyjohnny.sh',
     license='MIT',

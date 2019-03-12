@@ -1,7 +1,10 @@
-virtualenv
+*venv*
 *.egg-info/*
 */__pycache__/*
 
 .eggs/*
 
 *.pyc
+
+dist
+build

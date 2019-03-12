@@ -48,7 +48,7 @@ COLORS_MAP = {
 # Monkey patch the logging formatter to print the full stack trace
 # http://www.velocityreviews.com/forums/t717977-castrated-traceback-in-sys-exc_info.html
 # - PDW
-def formatException(_, ei):
+def _formatException(_, ei):
     """
     Format and return the specified exception information as a string.
     This implementation builds the complete stack trace, combining
@@ -60,7 +60,7 @@ def formatException(_, ei):
     return ''.join(lines)
 
 # monkey patch the logging module
-logging.Formatter.formatException = formatException
+logging.Formatter.formatException = _formatException
 
 def log_level(level):
     return LEVEL_MAP.get(level, LEVEL_MAP["debug"])
