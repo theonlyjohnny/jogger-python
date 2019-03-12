@@ -1,4 +1,4 @@
-from logger.config import LoggerConfig
+from jogger_python import LoggerConfig
 
 def assert_eq(name, expected, actual):
     assert expected == actual, "mismatch of %s -- expected: %s, actual: %s" % (name, expected, actual)

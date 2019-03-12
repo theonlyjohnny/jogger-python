@@ -1,5 +1,4 @@
-from logger.config import LoggerConfig
-from logger import create_logger, get_logger
+from jogger_python import create_logger, get_logger, LoggerConfig
 
 def test_create_console_logger():
     name = 'test_create_console_logger'
