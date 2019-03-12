@@ -32,6 +32,8 @@ git add version.txt
 git commit -m 'bump version'
 git push
 
+rm -rf ./build ./dist || true
+
 git tag v$(cat ./version.txt)
 python3 -m twine upload ./dist/*
 git push --tag
